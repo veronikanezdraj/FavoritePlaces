@@ -20,7 +20,7 @@ function ImagePicker() {
     }
     if (useCameraPermissionInfo.status === PermissionStatus.DENIED) {
       Alert.alert(
-        "insulfficient Permissions!",
+        "Insulfficient Permissions!",
         "You need to grant camera permissions to use this app."
       );
       return false;
