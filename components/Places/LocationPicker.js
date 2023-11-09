@@ -1,3 +1,6 @@
+// import { useEffect, useState } from "react";
+// import { Alert, View, StyleSheet, Image, Text } from "react-native";
+
 import { useEffect, useState } from "react";
 import { Alert, View, StyleSheet, Image, Text } from "react-native";
 import {
@@ -18,8 +21,10 @@ import { getAddress, getMapPreview } from "../../util/location";
 function LocationPicker({ onPickLocation }) {
   const [pickedLocation, setPickedLocation] = useState();
   const isFocused = useIsFocused();
+
   const navigation = useNavigation();
   const route = useRoute();
+
   const [locationPermissionInformation, requestPermission] =
     useForegroundPermissions();
 
@@ -40,11 +45,12 @@ function LocationPicker({ onPickLocation }) {
           pickedLocation.lat,
           pickedLocation.lng
         );
-        onPickLocation(pickedLocation, { ...onPickLocation, address: address });
+        onPickLocation({ ...pickedLocation, address: address });
       }
     }
+
     handleLocation();
-  }, [pickedLocation]);
+  }, [pickedLocation, onPickLocation]);
 
   async function verifyPermissions() {
     if (
