@@ -7,7 +7,7 @@ function PlacesList({ places }) {
   const navigation = useNavigation();
 
   function selectPlaceHandler(id) {
-    navigation.navigate("PlaceDetail", {
+    navigation.navigate("PlaceDetails", {
       placeId: id,
     });
   }
